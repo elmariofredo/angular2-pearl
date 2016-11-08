@@ -55,8 +55,8 @@ module.exports = function (options) {
      */
     entry: {
 
-      'polyfills': './src/polyfills.browser.ts',
-      'vendor': './src/vendor.browser.ts',
+      // 'polyfills': './src/polyfills.browser.ts',
+      // 'vendor': './src/vendor.browser.ts',
       'main': './src/main.browser.ts'
 
     },
@@ -175,9 +175,10 @@ module.exports = function (options) {
        * See: https://webpack.github.io/docs/list-of-plugins.html#commonschunkplugin
        * See: https://github.com/webpack/docs/wiki/optimization#multi-page-app
        */
-      new CommonsChunkPlugin({
-        name: ['polyfills', 'vendor'].reverse()
-      }),
+      // new CommonsChunkPlugin({
+      //   name: ['polyfills', 'vendor'].reverse()
+      // }),
+      
 
       /**
        * Plugin: ContextReplacementPlugin

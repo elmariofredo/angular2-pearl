@@ -5,6 +5,10 @@ import { Component, ViewEncapsulation } from '@angular/core';
 
 import { AppState } from './app.service';
 
+import * as angularclassLogo from '../assets/img/angularclass-avatar.png';
+
+import * as style from './app.component.css';
+
 /*
  * App Component
  * Top Level Component
@@ -13,7 +17,7 @@ import { AppState } from './app.service';
   selector: 'app',
   encapsulation: ViewEncapsulation.None,
   styleUrls: [
-    './app.component.css'
+    style
   ],
   template: `
     <nav>
@@ -52,14 +56,13 @@ import { AppState } from './app.service';
       <span>WebPack Angular 2 Starter by <a [href]="url">@AngularClass</a></span>
       <div>
         <a [href]="url">
-          <img [src]="angularclassLogo" width="25%">
+          <img src="${ angularclassLogo }" width="25%">
         </a>
       </div>
     </footer>
   `
 })
 export class AppComponent {
-  angularclassLogo = 'assets/img/angularclass-avatar.png';
   name = 'Angular 2 Webpack Starter';
   url = 'https://twitter.com/AngularClass';
 

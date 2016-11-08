@@ -1,5 +1,5 @@
 {
-  "name": "angular2-webpack-starter",
+  "name": "angular2-pearl",
   "version": "5.1.1",
   "description": "An Angular 2 Webpack Starter kit featuring Angular 2 (Router, Http, Forms, Services, Tests, E2E, Coverage), Karma, Protractor, Jasmine, Istanbul, TypeScript, and Webpack by AngularClass",
   "keywords": [
@@ -10,10 +10,15 @@
   "author": "Patrick Stapleton <patrick@angularclass.com>",
   "homepage": "https://github.com/angularclass/angular2-webpack-starter",
   "license": "MIT",
+  "config": {
+    "dockerScope": "ngparty",
+    "port": 8082
+  },
   "scripts": {
     "build:dev": "webpack --config config/webpack.dev.js --progress --profile",
     "build:docker": "npm run build:prod && docker build -t angular2-webpack-start:latest .",
     "build:prod": "webpack --config config/webpack.prod.js  --progress --profile --bail",
+    "serve:prod": "static -a 0.0.0.0 -p 8082 -H '{\"Access-Control-Allow-Origin\": \"*\"}' dist",
     "build": "npm run build:dev",
     "ci": "npm run lint && npm test && npm run e2e",
     "clean:dist": "npm run rimraf -- dist",
@@ -108,6 +113,7 @@
     "karma-remap-coverage": "^0.1.1",
     "karma-sourcemap-loader": "^0.3.7",
     "karma-webpack": "1.8.0",
+    "node-static": "^0.7.9",
     "parse5": "^2.2.2",
     "protractor": "^4.0.9",
     "raw-loader": "0.5.1",

@@ -1,8 +1,3 @@
-__webpack_public_path__ = window.__AppShell_publicPath__.angular2
-
-import './polyfills.browser';
-import './vendor.browser';
-
 /*
  * Angular bootstraping
  */
@@ -18,23 +13,13 @@ import { AppModule } from './app';
 /*
  * Bootstrap our Angular app with a top level NgModule
  */
-export function main( API: AppShellAPI ): Function {
-
-  const appElement = document.createElement( 'app' );
-
-  document.getElementById( API.appMountPoint )
-    .appendChild( appElement );
-
-  platformBrowserDynamic()
+export function main(): Promise<any> {
+  return platformBrowserDynamic()
     .bootstrapModule(AppModule)
     .then(decorateModuleRef)
     .catch(err => console.error(err));
-
-  return () => {
-
-    const app = appElement.parentNode.removeChild( appElement );
-
-  }
-
 }
 
+// needed for hmr
+// in prod this is replace for document ready
+bootloader(main);
